@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/workflows",
+      "handler": "github-actions.getWorkflows",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/workflows/:id/trigger",
+      "handler": "github-actions.triggerWorkflow",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

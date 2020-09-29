@@ -1,0 +1,20 @@
+{
+  "name": "strapi-plugin-github-actions",
+  "version": "0.0.1",
+  "description": "This plugin allows you to trigger a GitHub action with Strapi",
+  "strapi": {
+    "name": "github-actions",
+    "icon": "plug",
+    "description": "Trigger a GitHub action through Strapi"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "dayjs": "^1.9.1",
+    "http-errors": "^1.8.0"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

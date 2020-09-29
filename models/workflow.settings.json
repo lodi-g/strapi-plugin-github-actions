@@ -1,0 +1,57 @@
+{
+  "collectionName": "github-actions_workflows",
+  "info": {
+    "name": "Workflow"
+  },
+  "options": {
+    "timestamps": true,
+    "increments": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "description": {
+      "type": "string",
+      "configurable": false
+    },
+    "github_host": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "repo_owner": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "repo_name": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "pat": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "event_type": {
+      "type": "string",
+      "required": true,
+      "configurable": false
+    },
+    "client_payload": {
+      "type": "json",
+      "required": false,
+      "configurable": false
+    },
+    "started_at": {
+      "type": "datetime",
+      "required": false,
+      "configurable": false
+    }
+  }
+}
