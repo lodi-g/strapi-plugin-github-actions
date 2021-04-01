@@ -39,7 +39,7 @@ const HomePage = () => {
 
   const triggerWorkflow = async (id) => {
     try {
-      await request(`/${pluginId}/workflows/${id}/trigger`);
+      await request(`/${pluginId}/workflows/${id}/trigger`, { method: "POST" });
       strapi.notification.success("Dispatched event!");
       fetchWorkflows();
     } catch (e) {

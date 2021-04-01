@@ -9,7 +9,7 @@
       }
     },
     {
-      "method": "GET",
+      "method": "POST",
       "path": "/workflows/:id/trigger",
       "handler": "github-actions.triggerWorkflow",
       "config": {
