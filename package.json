@@ -8,7 +8,7 @@
     "description": "Trigger a GitHub action through Strapi"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "dayjs": "^1.9.1",
     "http-errors": "^1.8.0"
   },
