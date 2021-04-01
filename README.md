@@ -19,6 +19,28 @@ First, you need to add one or multiple `workflows` in your content.
 - Add a new workflow by filling all its details
 - Once saved, you can trigger the workflow by going to Plugins > GitHub Actions Plugin and clicking on the 'start' button.
 
+### Set personal access token in config
+If you don't want your personal access token to be visible and editable from the workflow,
+you can set it in the plugin config, using for example a env variable
+
+![Alt text](/strapi-workflow-example.png?raw=true "Strapi Workflow example")
+
+And in plugin config
+
+```javascript
+// config/plugins.js
+
+module.exports = ({ env }) => ({
+// ...
+'github-actions': {
+  hasEnvPat: true,
+  pats: { 'my website': env('GITHUB_APIKEY') },
+},
+// ...
+})
+```
+
+the name of the workflow must be identical to the name of the property inside `pats` object (`"my website"` in the example)
 ### Optional: configure the view for the workflow model
 
 Strapi does not yet offer a way for plugins to configure their models' views, nor to hide themselves from the collection types. Initially, this plugin should have been configurable only through the settings but unfortunately this is not yet possible.

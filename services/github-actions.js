@@ -1,7 +1,35 @@
 "use strict";
 const axios = require("axios");
+const createError = require("http-errors");
+
+const utils = require("../utils");
+
+function populateWorkflowWithEnvPat(workflow) {
+  try {
+
+    const config = utils.getConfig()
+    const hasEnvPat = config.hasEnvPat
+
+    if (!hasEnvPat) {
+      return workflow
+    }
+    const wfConfigPat = config.pats[workflow.name]
+
+    if (wfConfigPat) {
+      return {
+        ...workflow,
+        pat: wfConfigPat
+      }
+    }
+
+    return workflow
+  } catch (e) {
+    throw createError(500, "Invalid config");
+  }
+}
 
 module.exports = {
+  populateWorkflowWithEnvPat,
   getWorkflows: async () => {
     const workflows = await strapi
       .query("workflow", "github-actions")
@@ -11,9 +39,11 @@ module.exports = {
   },
 
   triggerWorkflow: async (id) => {
-    const workflow = await strapi
+    const dbWorkflow = await strapi
       .query("workflow", "github-actions")
       .findOne({ id });
+
+    const workflow = populateWorkflowWithEnvPat(dbWorkflow)
     const url = `https://api.${workflow.github_host}/repos/${workflow.repo_owner}/${workflow.repo_name}/dispatches`;
 
     await axios.post(
