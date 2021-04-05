@@ -35,7 +35,6 @@
     },
     "pat": {
       "type": "string",
-      "required": true,
       "configurable": false
     },
     "event_type": {
