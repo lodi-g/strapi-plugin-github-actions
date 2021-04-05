@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-github-actions",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "This plugin allows you to trigger a GitHub action with Strapi",
   "strapi": {
     "name": "github-actions",
