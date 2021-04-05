@@ -28,6 +28,7 @@ function populateWorkflowWithEnvPat(workflow) {
     );
     return workflow;
   } catch (e) {
+    strapi.log.debug(`${pluginPkg.name}: ${e}`);
     throw createError(500, "Invalid config");
   }
 }
